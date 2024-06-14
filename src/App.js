@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './componentes/Home';
+import Number from './componentes/Number';
+import Word from './componentes/Word';
+import StyledWord from './componentes/StyledWord';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/:number" element={<Number />} />
+        <Route path="/:word" element={<Word />} />
+        <Route path="/:word/:color/:bgColor" element={<StyledWord />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
+
 
 export default App;
